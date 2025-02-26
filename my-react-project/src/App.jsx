@@ -1,8 +1,21 @@
 import './App.css'
-import Profile from './Profile/Profile'
+import Profile from './Profile/Profile';
+import { useState } from 'react';
 
 
 function App() {
+
+  let [counter, setCounter] = useState(0);
+  let [text, setText] = useState("")
+
+  const handleClick = () => {
+    setCounter(counter + 1);
+  }
+
+  const handleChange = (event) => {
+    setText(event.target.value)
+  }
+
   const Users = [
     {
       "id": 1,
@@ -46,17 +59,21 @@ function App() {
     },
   ]
 
-  const handleClick = (something) => {
-    console.log(`Button Clicked`);
+  // const handleClick = (something) => {
+  //   console.log(`Button Clicked`);
 
 
-  }
+  // }
   return (
     <>
-      <h2>Users Details  </h2>
+      {/* <h2>Users Details  </h2>
       <Profile users={Users} />
       <button onClick={() => handleClick("First Button Clicked.")}>First Button</button>
-      <button onClick={() => handleClick("Second Button Clicked.")}>Second Button</button>
+      <button onClick={() => handleClick("Second Button Clicked.")}>Second Button</button> */}
+      {/* <div>Counter Value : {counter}</div>
+      <button onClick={handleClick}>Increment</button><br/> */}
+      <input value={text} onChange={handleChange} />
+      <div>Text value : {text}</div>
 
     </>
   )
